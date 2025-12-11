@@ -173,6 +173,11 @@ The application features a modern, responsive UI with:
 - Role-based dashboards
 - Interactive room browsing
 - Booking management interface
+  ![WhatsApp Image 2025-11-03 at 00 54 08_bb3ded69](https://github.com/user-attachments/assets/c334b53d-dde4-4cdd-a31e-2c138abef2d9)
+![WhatsApp Image 2025-11-03 at 00 54 40_e679a4c9](https://github.com/user-attachments/assets/e8c61f6a-b99d-465d-b10b-02249c222439)
+![WhatsApp Image 2025-11-03 at 00 56 18_019d1612](https://github.com/user-attachments/assets/e77854fa-77bf-4f25-9c53-b90376f33cba)
+![Uploading WhatsApp Image 2025-11-01 at 18.41.04_4ca1cb2c.jpg…]()
+
 
 ## 🔧 Configuration
 
@@ -244,4 +249,5 @@ If you have any questions or issues, please open an issue on the GitHub reposito
 ---
 
 ⭐ If you find this project helpful, please consider giving it a star!
+
 
