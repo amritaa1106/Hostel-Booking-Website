@@ -1,152 +1,247 @@
-# Hostel-Booking-Website
-Campus Hostel booking website
-# 🏫 Campus Hostel Booking System
+# 🏠 Hostel Booking System
 
-Welcome to **Campus Hostel** — a full-featured 💻 web app for managing hostel room bookings in universities!
-Built with **Java Servlets/JSP**, **MySQL**, and **Apache Tomcat**, it provides secure logins for both **Students** and **Admins**, featuring a modern glassmorphic UI and real-time booking updates.
+A comprehensive web-based hostel booking management system built with Java, JSP, and MySQL. This system allows students to browse and book hostel rooms while providing administrators with tools to manage bookings, rooms, and student information.
 
----
+## ✨ Features
 
-## 🌟 Features
+### For Students
+- **User Authentication**: Secure login system with role-based access
+- **Room Browsing**: View available rooms with details (type, capacity, price, amenities)
+- **Room Booking**: Book available rooms with check-in and check-out dates
+- **Booking Management**: View and manage personal bookings
+- **Booking Cancellation**: Cancel pending bookings
+- **Student Dashboard**: Personalized dashboard with booking history
 
-### 👥 Student & Admin Login
+### For Administrators
+- **Admin Dashboard**: Overview of all bookings, rooms, and students
+- **Booking Approval**: Approve or reject student booking requests
+- **Room Management**: View and manage room availability
+- **Student Management**: View student information and booking history
+- **Booking Analytics**: Track booking statuses and statistics
 
-* 🔐 Secure authentication with role-based access
-* 🧑‍🎓 Student dashboard for tracking bookings
-* 🧑‍💼 Admin dashboard for managing rooms, hostels, and students
+## 🛠️ Technology Stack
 
-### 🏠 Room Booking
+- **Backend**: Java 8, Java Servlets, JSP (JavaServer Pages)
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap Icons
+- **Database**: MySQL 8.0
+- **Build Tool**: Maven 3.9+
+- **Application Server**: Apache Tomcat 9.0
+- **Containerization**: Docker & Docker Compose
 
-* 🛏️ Browse and filter rooms by type, floor, and availability
-* 📸 View amenities, prices (₹), and real room images
-* ⚡ Book rooms instantly with live status updates
+## 📋 Prerequisites
 
-### 📊 Admin Dashboard
+Before you begin, ensure you have the following installed:
 
-* 🧩 Manage hostels, rooms, and student data
-* ✅ Approve/reject bookings
-* 🔔 View and handle notifications
+- **Java Development Kit (JDK)**: Version 8 or higher
+- **Maven**: Version 3.6 or higher
+- **MySQL**: Version 8.0 or higher (if running without Docker)
+- **Docker & Docker Compose**: (Optional, for containerized deployment)
+- **Apache Tomcat**: Version 9.0 or higher (if running without Docker)
 
-### 💡 Student Dashboard
+## 🚀 Getting Started
 
-* 📅 Check booking status in real time
-* 🏡 Track available and personal rooms
+### Option 1: Using Docker (Recommended)
 
-### 💻 Responsive UI
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/HostelBookingSystem.git
+   cd HostelBookingSystem
+   ```
 
-* ✨ Sleek glassmorphic design
-* 📱 Works on mobile, tablet, and desktop
-* 🖌️ Easy customization via CSS
+2. **Update database credentials** (if needed)
+   
+   Edit `docker-compose.yml` and update the MySQL root password:
+   ```yaml
+   MYSQL_ROOT_PASSWORD: your_secure_password
+   ```
 
----
+3. **Build and start the application**
+   ```bash
+   docker-compose up --build
+   ```
 
-## 🧰 Tech Stack
+4. **Access the application**
+   - Application: http://localhost:8080
+   - MySQL: localhost:3306
 
-| Technology                                        | Purpose               |
-| ------------------------------------------------- | --------------------- |
-| ☕ **Java 8+**                                     | Core backend          |
-| 🧱 **Apache Tomcat 9+**                           | Web server            |
-| 🪄 **JSP & Servlets**                             | Dynamic web pages     |
-| 🔗 **JDBC (MySQL Connector)**                     | Database connectivity |
-| 🗄️ **MySQL 5.7+/8+**                             | Data storage          |
-| 🎨 **HTML5, CSS3, Bootstrap Icons, Google Fonts** | Frontend design       |
+### Option 2: Manual Setup
 
----
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/HostelBookingSystem.git
+   cd HostelBookingSystem
+   ```
 
-## ⚙️ Setup Instructions
+2. **Set up MySQL database**
+   ```sql
+   CREATE DATABASE hostel_booking_system;
+   ```
 
-### 🧭 Clone the Repository
+3. **Configure database connection**
+   
+   Update the database connection details in:
+   - `src/main/java/com/hostel/utils/DBConnection.java`
+   - Or configure via environment variables if supported
+
+4. **Build the project**
+   ```bash
+   mvn clean package
+   ```
+
+5. **Deploy to Tomcat**
+   - Copy `target/HostelBookingSystem.war` to Tomcat's `webapps` directory
+   - Start Tomcat server
+   - Access the application at http://localhost:8080/HostelBookingSystem
+
+### Option 3: Using Maven Jetty Plugin (Development)
+
+1. **Run the application**
+   ```bash
+   mvn jetty:run
+   ```
+
+2. **Access the application**
+   - Application: http://localhost:8080
+
+## 📁 Project Structure
+
+```
+HostelBookingSystem/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/hostel/
+│   │   │       ├── dao/              # Data Access Objects
+│   │   │       │   ├── AdminDAO.java
+│   │   │       │   ├── BookingDAO.java
+│   │   │       │   ├── RoomDAO.java
+│   │   │       │   └── StudentDAO.java
+│   │   │       ├── model/            # Entity Models
+│   │   │       │   ├── Admin.java
+│   │   │       │   ├── Booking.java
+│   │   │       │   ├── Room.java
+│   │   │       │   └── Student.java
+│   │   │       ├── service/           # Business Logic Layer
+│   │   │       │   ├── AdminService.java
+│   │   │       │   ├── BookingService.java
+│   │   │       │   └── StudentService.java
+│   │   │       ├── servlets/         # HTTP Request Handlers
+│   │   │       │   ├── AdminServlet.java
+│   │   │       │   ├── BookingServlet.java
+│   │   │       │   ├── LoginServlet.java
+│   │   │       │   └── ...
+│   │   │       └── utils/            # Utility Classes
+│   │   │           └── DBConnection.java
+│   │   └── webapp/                   # Web Resources
+│   │       ├── css/
+│   │       │   └── style.css
+│   │       ├── images/
+│   │       ├── jsp/                  # JSP Pages
+│   │       │   ├── index.jsp
+│   │       │   ├── login.jsp
+│   │       │   ├── student-dashboard.jsp
+│   │       │   ├── admin-dashboard.jsp
+│   │       │   └── ...
+│   │       └── WEB-INF/
+│   │           └── web.xml
+├── pom.xml                           # Maven Configuration
+├── Dockerfile                        # Docker Image Definition
+├── docker-compose.yml               # Docker Compose Configuration
+└── README.md
+```
+
+## 🗄️ Database Schema
+
+The system uses the following main tables:
+
+- **students**: Student information (registration number, name, email, course, etc.)
+- **admins**: Administrator accounts
+- **rooms**: Room details (room number, type, capacity, price, amenities)
+- **bookings**: Booking records (student, room, dates, status, payment)
+
+## 🔐 Default Credentials
+
+⚠️ **Important**: Change default credentials before deploying to production!
+
+- **Admin**: Configure in database
+- **Student**: Register through the application
+
+## 🎨 Screenshots
+
+The application features a modern, responsive UI with:
+- Clean and intuitive design
+- Role-based dashboards
+- Interactive room browsing
+- Booking management interface
+
+## 🔧 Configuration
+
+### Environment Variables
+
+When using Docker, you can configure the following environment variables:
+
+- `DB_HOST`: Database host (default: `db`)
+- `DB_PORT`: Database port (default: `3306`)
+- `DB_NAME`: Database name (default: `hostel_booking_system`)
+- `DB_USER`: Database user (default: `root`)
+- `DB_PASS`: Database password (default: `change_me`)
+
+## 📝 API Endpoints
+
+### Student Endpoints
+- `GET /` - Home/Login page
+- `POST /login` - User authentication
+- `GET /student` - Student dashboard
+- `GET /rooms` - Browse available rooms
+- `POST /book` - Create booking
+- `GET /my-bookings` - View personal bookings
+- `POST /cancel-booking` - Cancel a booking
+
+### Admin Endpoints
+- `GET /admin` - Admin dashboard
+- `GET /bookings` - View all bookings
+- `POST /approve-booking` - Approve a booking
+- `POST /reject-booking` - Reject a booking
+
+## 🧪 Testing
+
+Run tests using Maven:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/hostel-booking-system.git
+mvn test
 ```
 
-### 🗃️ Database Setup
+## 🤝 Contributing
 
-1. Ensure MySQL is running.
-2. Execute `/sql/hostel_booking_schema.sql` to create tables and sample data.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### 🔐 Backend Configuration
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Edit your MySQL credentials in `DBConnection.java`:
+## 📄 License
 
-```java
-Connection conn = DriverManager.getConnection(
-    "jdbc:mysql://localhost:3306/hostel_booking_system",
-    "root",
-    "YOUR_PASSWORD"
-);
-```
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-💡 *Tip: Use a non-root user for production.*
+## 👤 Author
 
-### 🚀 Build & Deploy
+**Your Name**
+- GitHub: [@yourusername](https://github.com/yourusername)
 
-If you use **Maven**:
+## 🙏 Acknowledgments
 
-```bash
-mvn clean package
-```
+- Bootstrap Icons for iconography
+- Inter font family for typography
+- Apache Tomcat community
+- MySQL development team
 
-Then deploy the generated WAR file to Tomcat’s `/webapps` folder.
+## 📞 Support
 
-### 🌐 Run the App
-
-Visit → [http://localhost:8080/HostelBookingSystem/](http://localhost:8080/HostelBookingSystem/)
+If you have any questions or issues, please open an issue on the GitHub repository.
 
 ---
 
-## 📁 Folder Structure
-
-```
-/src/main/java       -> Servlets, Models, DAO  
-/src/main/webapp     -> JSPs, HTML, CSS, images  
-/sql                 -> Database schema & data  
-```
-
----
-
-## 🖼️ Screenshots
-
-
-📸 Example:
-<img width="1914" height="998" alt="Screenshot 2025-10-09 004256" src="https://github.com/user-attachments/assets/19de81b1-7e50-4d7d-9593-03ceff0f5d7c" />
-
-
----
-
-## 🎨 Customization
-
-* 🪪 Replace logos and gallery images in `/images`
-* 🎨 Edit `/css/style.css` to tweak colors and fonts
-* 🏢 Add new amenities, floor levels, or room types via the database
-
----
-
-## 👩‍💻 Developer
-
-**Developed by:** *Amrita Hariharan*
-💡 *Design inspiration:* [Unsplash](https://unsplash.com) & [Bootstrap Icons](https://icons.getbootstrap.com)
-
----
-
-## 📜 License
-
-This project is for **educational purposes**.
-For commercial use, please contact the author for permission.
-
----
-
-## 🤝 Contribute
-
-Fork it 🍴 | Star it ⭐ | Improve it 🚀
-Pull requests are always welcome!
-
-> “Great software isn’t just about code — it’s about creating something that simplifies life.” 🌍
-
-
-
-
-
-
+⭐ If you find this project helpful, please consider giving it a star!
 
