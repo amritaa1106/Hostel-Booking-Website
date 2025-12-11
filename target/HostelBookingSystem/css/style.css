@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.login-page {
+    background-image: url('../images/campushostel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.login-overlay {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+}
+
+.welcome-container, .login-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 450px;
+    backdrop-filter: blur(10px);
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.login-title {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.login-form {
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-input, input[type="email"], input[type="password"], select {
+    width: 100%;
+    padding: 0.85rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #f8f9fa;
+}
+
+.form-input:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background-color: white;
+}
+
+.btn, .login-btn {
+    background: #4a5568;
+    color: white;
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.5rem 0;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn:hover, .login-btn:hover {
+    background: #2d3748;
+    transform: translateY(-1px);
+}
+
+.btn:active, .login-btn:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    background: #ffebee;
+    color: #c62828;
+    padding: 0.75rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.links {
+    margin-top: 1rem;
+}
+
+.links a {
+    color: #667eea;
+    text-decoration: none;
+}
